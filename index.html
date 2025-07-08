@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Story</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      background: red;
+      position: relative;
+      margin: 100px auto;
+      transform: rotate(-45deg);
+      animation: pulse 1s infinite;
+      cursor: pointer;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.2) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    .content {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .photos {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .photos img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .letter {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-size: 1.1em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="heart" onclick="showContent()"></div>
+
+<div class="content" id="content">
+  <div class="photos">
+    <img src="VTPLJIJ9051715.jpg" alt="Photo 1">
+    <img src="IMG_20250412_133014.jpg" alt="Photo 2">
+    <img src="Messenger_creation_4AC9354A-1B98-4503-B41F-66C8ED770191.jpeg" alt="Photo 3">
+  </div>
+  <div class="letter">
+    <h2>To My Love ❤️</h2>
+    <p>
+      [Insert your thank-you letter here. You can type it and I’ll add it for you if you want!]
+    </p>
+  </div>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function showContent() {
+    document.getElementById('content').style.display = 'block';
+    document.querySelector('.heart').style.display = 'none';
+    document.getElementById('bg-music').play();
+  }
+</script>
+
+</body>
+</html>
