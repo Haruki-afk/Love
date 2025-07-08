@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Love</title>
+    <style>
+        body {{
+            margin: 0;
+            padding: 0;
+            background: #fff0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }}
+        .heart {{
+            width: 100px;
+            height: 90px;
+            background: red;
+            position: relative;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            animation: pulse 1s infinite;
+        }}
+        .heart:before,
+        .heart:after {{
+            content: "";
+            width: 100px;
+            height: 90px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }}
+        .heart:before {{
+            top: -50px;
+            left: 0;
+        }}
+        .heart:after {{
+            left: 50px;
+            top: 0;
+        }}
+        @keyframes pulse {{
+            0% {{ transform: scale(1) rotate(-45deg); }}
+            50% {{ transform: scale(1.1) rotate(-45deg); }}
+            100% {{ transform: scale(1) rotate(-45deg); }}
+        }}
+        #content {{
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }}
+        #content img {{
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }}
+        .letter {{
+            max-width: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }}
+    </style>
+</head>
+<body>
+    <div class="heart" onclick="showLove()"></div>
+    <div id="content">
+        <img src="assets/photo1.jpg" alt="Love photo 1">
+        <img src="assets/photo2.jpg" alt="Love photo 2">
+        <img src="assets/photo3.jpg" alt="Love photo 3">
+        <div class="letter">
+            <h2>To My Love 💖</h2>
+            <p>
+                Thank you for being the light of my life and the calm in my storm. <br>
+                Every moment with you is precious, and I cherish our memories more than anything. <br>
+                You make my world brighter just by being in it. <br><br>
+                I love you endlessly. 💕
+            </p>
+        </div>
+    </div>
+
+    <!-- Music placeholder -->
+    <audio id="bgMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function showLove() {{
+            document.querySelector(".heart").style.display = "none";
+            document.getElementById("content").style.display = "flex";
+            document.getElementById("bgMusic").play();
+        }}
+    </script>
+</body>
+</html>
