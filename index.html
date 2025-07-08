@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      background: red;
+      position: relative;
+      transform: rotate(-45deg);
+      cursor: pointer;
+      animation: pulse 1s infinite;
+      z-index: 2;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    #content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      z-index: 2;
+    }
+
+    #content img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .letter {
+      max-width: 80%;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .falling-heart {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Red_heart_icon.svg/1024px-Red_heart_icon.svg.png') no-repeat center;
+      background-size: contain;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart" onclick="showLove()"></div>
+
+  <div id="content">
+    <img src="https://via.placeholder.com/200x300?text=Photo+1" alt="Photo 1">
+    <img src="https://via.placeholder.com/200x300?text=Photo+2" alt="Photo 2">
+    <img src="https://via.placeholder.com/200x300?text=Photo+3" alt="Photo 3">
+
+    <div class="letter">
+      <h2>To My Love 💖</h2>
+      <p>
+        Thank you for being the light of my life and the calm in my storm.<br>
+        Every moment with you is precious, and I cherish our memories more than anything.<br>
+        You make my world brighter just by being in it.<br><br>
+        I love you endlessly. 💕
+      </p>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function showLove() {
+      document.querySelector(".heart").style.display = "none";
+      document.getElementById("content").style.display = "flex";
+      document.getElementById("bgMusic").play();
+      generateHearts();
+    }
+
+    function generateHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('falling-heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+        document.body.appendChild(heart);
+      }
+    }
+  </script>
+</body>
+</html>
