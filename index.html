@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>For My Love</title>
     <style>
-        body {{
+        body {
             margin: 0;
             padding: 0;
             background: #fff0f5;
@@ -16,8 +16,8 @@
             overflow: hidden;
             font-family: 'Arial', sans-serif;
             text-align: center;
-        }}
-        .heart {{
+        }
+        .heart {
             width: 100px;
             height: 90px;
             background: red;
@@ -25,48 +25,48 @@
             transform: rotate(-45deg);
             cursor: pointer;
             animation: pulse 1s infinite;
-        }}
+        }
         .heart:before,
-        .heart:after {{
+        .heart:after {
             content: "";
             width: 100px;
             height: 90px;
             background: red;
             border-radius: 50%;
             position: absolute;
-        }}
-        .heart:before {{
+        }
+        .heart:before {
             top: -50px;
             left: 0;
-        }}
-        .heart:after {{
+        }
+        .heart:after {
             left: 50px;
             top: 0;
-        }}
-        @keyframes pulse {{
-            0% {{ transform: scale(1) rotate(-45deg); }}
-            50% {{ transform: scale(1.1) rotate(-45deg); }}
-            100% {{ transform: scale(1) rotate(-45deg); }}
-        }}
-        #content {{
+        }
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
+        }
+        #content {
             display: none;
             flex-direction: column;
             align-items: center;
             gap: 15px;
             margin-top: 20px;
-        }}
-        #content img {{
+        }
+        #content img {
             max-width: 200px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }}
-        .letter {{
+        }
+        .letter {
             max-width: 80%;
             background: white;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }}
+        }
     </style>
 </head>
 <body>
